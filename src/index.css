@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 228 12% 20%;
+    --foreground: 30 20% 92%;
+
+    --card: 228 14% 24%;
+    --card-foreground: 30 20% 92%;
+
+    --popover: 228 14% 22%;
+    --popover-foreground: 30 20% 92%;
+
+    --primary: 28 74% 63%;
+    --primary-foreground: 228 12% 12%;
+
+    --secondary: 25 70% 85%;
+    --secondary-foreground: 228 12% 12%;
+
+    --muted: 228 10% 28%;
+    --muted-foreground: 228 10% 60%;
+
+    --accent: 28 74% 63%;
+    --accent-foreground: 228 12% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 228 10% 30%;
+    --input: 228 10% 30%;
+    --ring: 28 74% 63%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 228 14% 18%;
+    --sidebar-foreground: 30 20% 92%;
+    --sidebar-primary: 28 74% 63%;
+    --sidebar-primary-foreground: 228 12% 12%;
+    --sidebar-accent: 228 10% 28%;
+    --sidebar-accent-foreground: 30 20% 92%;
+    --sidebar-border: 228 10% 30%;
+    --sidebar-ring: 28 74% 63%;
+
+    --surface-elevated: 228 14% 26%;
+    --glow-primary: 28 74% 63%;
+    --gradient-hero: linear-gradient(135deg, hsl(228 12% 16%), hsl(228 14% 22%));
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .glow-accent {
+    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.4);
+  }
+
+  .glow-accent-sm {
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.3);
+  }
+
+  .grid-bg {
+    background-image: 
+      linear-gradient(hsl(var(--primary) / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -15px hsl(var(--primary) / 0.2);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out both;
+  }
+  .animate-fade-up-delay-1 {
+    animation: fadeUp 0.6s ease-out 0.1s both;
+  }
+  .animate-fade-up-delay-2 {
+    animation: fadeUp 0.6s ease-out 0.2s both;
+  }
+  .animate-fade-up-delay-3 {
+    animation: fadeUp 0.6s ease-out 0.3s both;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}

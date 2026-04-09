@@ -1,0 +1,31 @@
+import { createContext, useContext, useState, useCallback, type ReactNode } from "react";
+import type { Lang } from "./translations";
+
+interface LanguageContextType {
+  lang: Lang;
+  setLang: (lang: Lang) => void;
+  t: (obj: Record<string, string>) => string;
+}
+
+const LanguageContext = createContext<LanguageContextType | null>(null);
+
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [lang, setLang] = useState<Lang>("es");
+
+  const t = useCallback(
+    (obj: Record<string, string>) => obj[lang] ?? obj["es"] ?? "",
+    [lang],
+  );
+
+  return (
+    <LanguageContext.Provider value={{ lang, setLang, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = () => {
+  const ctx = useContext(LanguageContext);
+  if (!ctx) throw new Error("useLanguage must be used within LanguageProvider");
+  return ctx;
+};
