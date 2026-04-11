@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="border-t border-border/70 bg-background/95 py-14">
-      <div className="container px-4 mx-auto grid gap-10 md:grid-cols-4">
+      <div className="container px-4 mx-auto grid gap-10 md:grid-cols-5">
         {/* Brand */}
         <div className="space-y-4">
           <a href="#" className="inline-flex items-center gap-3">
@@ -55,6 +55,21 @@ const Footer = () => {
             </a>
             <a href="https://t.me/Fiftyst_studio_bot" target="_blank" rel="noreferrer" className="block text-foreground hover:text-primary transition-colors">
               Telegram
+            </a>
+          </div>
+        </div>
+
+        {/* Social */}
+        <div className="space-y-4">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            Síguenos
+          </h3>
+          <div className="text-sm space-y-2">
+            <a href="https://instagram.com/50st.studio" target="_blank" rel="noreferrer" className="block text-foreground hover:text-primary transition-colors">
+              Instagram: @50st.studio
+            </a>
+            <a href="https://tiktok.com/@50st.studio" target="_blank" rel="noreferrer" className="block text-foreground hover:text-primary transition-colors">
+              TikTok: 50st.studio
             </a>
           </div>
         </div>
