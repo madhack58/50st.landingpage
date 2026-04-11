@@ -53,7 +53,7 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://n8n-latest-jnm7.onrender.com/webhook-test/lead_form", {
+      const response = await fetch("https://n8n-latest-jnm7.onrender.com/webhook/lead_form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
